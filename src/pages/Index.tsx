@@ -1,4 +1,4 @@
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/AppSidebar";
 import { NoteGrid } from "@/components/NoteGrid";
 
@@ -30,13 +30,12 @@ const Index = () => {
   };
 
   return (
-    <SidebarProvider>
-      <div className="min-h-screen flex w-full bg-gray-50">
+    <SidebarProvider defaultOpen>
+      <div className="flex min-h-screen w-full bg-background">
         <AppSidebar />
-        <main className="flex-1">
-          <div className="p-4">
-            <SidebarTrigger />
-            <h1 className="text-2xl font-bold text-gray-900 mb-6">My Notes</h1>
+        <main className="flex-1 overflow-auto">
+          <div className="container py-6">
+            <h1 className="text-2xl font-bold text-foreground mb-6">My Notes</h1>
             <NoteGrid notes={sampleNotes} onNoteClick={handleNoteClick} />
           </div>
         </main>
